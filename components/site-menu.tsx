@@ -42,7 +42,8 @@ export function SiteMenu() {
         data-open={open}
         onClick={() => setOpen((value) => !value)}
       >
-        <span /><span /><span />
+        <em className="menu-glyph" aria-hidden="true"><i /><i /><i /></em>
+        <b className="menu-word">Menu</b>
       </button>
       <div
         className="menu-panel"
@@ -52,10 +53,10 @@ export function SiteMenu() {
       >
         <nav aria-label="Site menu">
           <Link href="/essays" onClick={() => setOpen(false)}>Essays</Link>
-          <Link href="/about" onClick={() => setOpen(false)}>About Prothymia</Link>
+          <Link href="/about" onClick={() => setOpen(false)}>About</Link>
           <Link href="/newsletter" onClick={() => setOpen(false)}>Subscribe</Link>
-          <Link href="/contact" onClick={() => setOpen(false)}>Contact Prothymia</Link>
-          <Link href="/support" onClick={() => setOpen(false)}>Support</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+          <Link href="/support" onClick={() => setOpen(false)}>Support Us</Link>
           <ThemeToggle />
         </nav>
       </div>

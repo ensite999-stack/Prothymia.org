@@ -13,7 +13,7 @@ export default async function StaticPageRoute({ params }: { params: Promise<{ pa
   if (!content) notFound();
 
   return (
-    <section className="section" lang="zh-CN">
+    <section className="section" lang="en-US">
       <div className="narrow">
         <p className="eyebrow">{content.eyebrow}</p>
         <h1 className="page-title">{content.title}</h1>
@@ -27,7 +27,7 @@ export default async function StaticPageRoute({ params }: { params: Promise<{ pa
                 <ul className="static-list">
                   {section.bullets.map((item, itemIndex) => (
                     <li key={`${item.title || "item"}-${itemIndex}`}>
-                      {item.title ? <strong>{item.title}：</strong> : null}{item.text}
+                      {item.title ? <strong>{item.title}: </strong> : null}{item.text}
                     </li>
                   ))}
                 </ul>
@@ -43,13 +43,13 @@ export default async function StaticPageRoute({ params }: { params: Promise<{ pa
         {page === "support" ? (
           <div className="donation-grid">
             <div className="donation-box">
-              <strong>比特币 (BTC)</strong>
+              <strong>Bitcoin (BTC)</strong>
               <code>{site.bitcoin}</code>
             </div>
             <div className="donation-box">
-              <strong>稳定币 / 以太坊 (EVM) 统一地址</strong>
+              <strong>Stablecoins / Ethereum (EVM)</strong>
               <code>{site.usdc}</code>
-              <p>建议使用 Base 或 Arbitrum One。发送前请确认资产与网络；使用错误网络可能导致资金永久丢失。</p>
+              <p>Base or Arbitrum One is recommended. Confirm the asset and network before sending; using the wrong network may result in permanent loss.</p>
             </div>
           </div>
         ) : null}

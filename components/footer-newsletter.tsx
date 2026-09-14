@@ -27,7 +27,7 @@ export function FooterNewsletter() {
 
     if (response.ok) {
       form.reset();
-      setMessage("订阅成功");
+      setMessage("Subscribed");
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(() => setMessage(""), 3000);
     } else {

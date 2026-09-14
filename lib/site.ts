@@ -4,7 +4,7 @@ export const site = {
   motto: "To attend is to inhabit.",
   email: "Prothymia@Prothymia.org",
   author: "Hollis H. Jiang",
-  color: "#000080",
+  color: "#5B0B63",
   facebook: "https://www.facebook.com/share/1F1tJsuhfF/",
   instagram: "https://www.instagram.com/hollis.jiang?stkn=MW1wNTVscXl5c3ozbw==",
   bitcoin: "bc1qqs0max5tkja7tmm6xtkp4jhqccgvxe6cm7lu0s",
@@ -30,165 +30,219 @@ export type StaticPage = {
 
 export const staticPages: Record<string, StaticPage> = {
   about: {
-    eyebrow: "关于 Prothymia",
-    title: "关于 Prothymia",
+    eyebrow: "About",
+    title: "About Prothymia",
     intro: [
-      "Prothymia 是一个独立的非盈利组织。“Prothymia”一词源自古希腊语所表达的一种精神状态：主体面对某项行动、事业或他人时，表现出的积极、自愿而热切的行动倾向——一种乐意并准备主动投入的姿态。它代表着内在的炽热、回应世界的渴望与决意。",
-      "在这个信息碎片化与注意力稀缺的时代，我们拒绝浮于表面的喧嚣，选择以沉静、深入且独特的视角，重新审视人与世界的关系。",
+      "Prothymia is an independent nonprofit organization. The name draws on an ancient Greek idea of a willing and eager disposition toward action: a readiness to engage, respond, and take part.",
+      "In an age of fragmented information and scarce attention, we choose a quieter path: careful observation, sustained thought, and an independent view of the relationship between people and the world.",
     ],
     sections: [
       {
-        heading: "我们的关切",
-        paragraphs: ["我们聚焦于重塑人类经验与未来的核心议题，通过深度撰稿、哲学思考与社会观察，探寻深刻的公共价值："],
+        heading: "What we care about",
+        paragraphs: ["Our work focuses on questions that shape human experience and the future:"],
         bullets: [
-          { title: "人生与存在", text: "探索个体的生命状态、精神困境与意义建构，记录真实而具体的活着。" },
-          { title: "哲学思考", text: "以批判性的思辨拆解当代社会的盲点，提供超越时代阵痛的理性坐标。" },
-          { title: "人权与尊严", text: "关注边缘化的声音与权利的边界，捍卫个体在社会结构中的基本尊严。" },
-          { title: "环境与生态", text: "审视人类活动对自然的深刻烙印，思考人与地球如何建立长久且正义的伦理关系。" },
-          { title: "公共议题", text: "追踪复杂的社会变革，记录制度、伦理与个人选择之间的交织与张力。" },
+          { title: "Life and existence", text: "The conditions of individual life, spiritual difficulty, meaning, and the experience of being alive." },
+          { title: "Philosophy", text: "Critical thought that examines assumptions, social blind spots, and the ideas by which people orient themselves." },
+          { title: "Human rights and dignity", text: "The boundaries of rights, marginalized voices, and the dignity of the individual within social structures." },
+          { title: "Environment and ecology", text: "The human imprint on the natural world and the ethical relationship between people and the planet." },
+          { title: "Public life", text: "Institutions, social change, ethics, and the tension between collective systems and individual choice." },
         ],
       },
       {
-        heading: "我们的独立姿态",
+        heading: "Our independence",
         paragraphs: [
-          "作为一家非商业杂志，Prothymia 不接受资本的控制与流量算法的驱使。我们不追踪即时热点，不制造情绪恐慌，亦不投合无意义的媚俗。我们相信，独立性是思想自由的前提，唯有摆脱商业利益的束缚，文字才能保持其应有的纯粹、敏锐与力量。",
-          "我们希望 Prothymia 能成为一个供读者停下脚步、深度思考的庇护所——在这里，每一个思考都被尊重，每一篇文字都试图为理解这个复杂的世界提供新的可能。",
+          "As a noncommercial magazine, Prothymia does not allow commercial interests or traffic algorithms to determine its editorial direction. We do not chase every trend, manufacture panic, or optimize writing for empty attention.",
+          "We believe independence is a condition of free thought. Prothymia is intended to be a place where readers can slow down, think carefully, and encounter writing that tries to make the world more intelligible.",
         ],
       },
     ],
   },
   privacy: {
-    eyebrow: "隐私政策",
-    title: "隐私政策",
+    eyebrow: "Privacy",
+    title: "Privacy Policy",
     intro: [
-      "Prothymia（以下简称“我们”）高度重视并尊重您的个人隐私。作为一个独立的非商业组织，我们相信思想的自由表达与阅读的独立性离不开对隐私的认真保护。本隐私政策旨在透明说明我们如何收集、使用和保护信息。",
+      "Prothymia respects the privacy of its readers. As an independent, noncommercial organization, we collect only the information reasonably necessary to operate the site and provide the newsletter.",
     ],
     sections: [
       {
-        heading: "1. 信息收集与使用",
-        paragraphs: ["我们仅收集维持网站基础运行与提供内容订阅服务所必需的最少数据："],
+        heading: "1. Information we collect and use",
+        paragraphs: ["We limit collection to information needed for basic site operation and reader-requested services:"],
         bullets: [
-          { title: "电子邮件地址（订阅服务）", text: "当您主动订阅 Prothymia 时，我们会收集您的电子邮箱地址，用于发送订阅确认、新文章通知或必要的网站服务通知。Prothymia 不出售或出租您的邮箱，也不将其用于广告营销。为完成邮件发送，邮件服务提供商会按其服务职责处理该邮箱。" },
-          { title: "基础访问数据（网站分析与安全）", text: "为了了解内容影响和维持网站安全，我们可能使用托管基础设施提供的汇总统计，例如页面访问量（PV / UV）、粗略的国家或城市级地区，以及浏览器或操作系统等设备类别。托管和安全基础设施在请求层面也可能处理原始 IP 地址、User-Agent、时间戳等技术数据；这些数据不被用于跨站追踪或用户画像。" },
+          { title: "Email address", text: "If you subscribe, we use your email address to send subscription confirmation, new-article notices, and necessary service messages. Prothymia does not sell or rent your email address and does not use it for advertising. Our email service provider necessarily processes the address in order to deliver mail." },
+          { title: "Basic access data", text: "Hosting and security infrastructure may provide aggregate information such as page views, unique visitors, approximate country or city, and browser or operating-system categories. At the request level, infrastructure may also process technical data such as IP address, User-Agent, and timestamps. We do not use this information for cross-site tracking or user profiling." },
         ],
       },
       {
-        heading: "2. 坚决不使用的技术",
+        heading: "2. Technologies we do not use",
         bullets: [
-          { title: "无营销工具", text: "我们不使用商业广告系统、营销自动化追踪或第三方推广插件。" },
-          { title: "无第三方追踪", text: "我们不植入跨站追踪 Cookie、社交平台追踪像素（如 Meta Pixel）或大型商业分析 SDK（如 Google Analytics）。" },
-          { title: "无用户画像", text: "我们不对您的阅读偏好、行为习惯或个人特征进行分析、建模或画像构建。" },
+          { title: "No advertising or marketing tracking", text: "We do not use commercial ad systems, marketing automation trackers, or promotional tracking plug-ins." },
+          { title: "No third-party cross-site tracking", text: "We do not use Meta Pixel, Google Analytics, cross-site tracking cookies, or similar commercial tracking SDKs." },
+          { title: "No reader profiles", text: "We do not build behavioral or demographic profiles from your reading activity." },
         ],
       },
       {
-        heading: "3. 数据存储与安全",
+        heading: "3. Storage and security",
         paragraphs: [
-          "我们采取合理且必要的技术与管理措施，保护您提交的邮箱地址免受未经授权的访问、泄露、篡改或毁损。汇总统计仅用于理解网站使用情况与维护服务，不用于识别具体个人；我们不会把基础设施可能处理的原始请求数据描述为匿名数据。",
+          "We use reasonable technical and administrative safeguards to protect the information submitted to us. Aggregate statistics are used to understand site operation and reach, not to identify individual readers. We do not describe raw infrastructure request data as anonymous when it may contain identifiers such as IP addresses.",
         ],
       },
       {
-        heading: "4. 您的权利",
+        heading: "4. Your choices",
         bullets: [
-          { title: "退订权利", text: "您可以随时通过订阅邮件底部的退订链接取消订阅。退订后，我们会删除本地订阅者记录及可关联的本地投递记录；邮件服务提供商可能依据其独立政策保留必要的投递或安全日志。" },
-          { title: "信息查询与删除", text: "如需查询或删除您提交的邮箱信息，可随时与我们联系。" },
+          { title: "Unsubscribe", text: "You can unsubscribe at any time using the link in a newsletter email. Unsubscribing deletes the local subscriber record and linked local delivery records. An email provider may retain necessary delivery or security logs under its own policies." },
+          { title: "Access or deletion requests", text: "You may contact us to ask about or request deletion of the email address you submitted." },
         ],
       },
       {
-        heading: "5. 政策更新与联系方式",
+        heading: "5. Updates and contact",
         paragraphs: [
-          "我们可能会根据网站功能变化适时修订本隐私政策。任何更新都将在本页面发布。",
-          `如对本隐私政策有疑问、意见或隐私相关请求，请联系 ${site.email}。`,
+          "We may revise this policy as the site or its services change. Updates will be published on this page.",
+          `Questions or privacy requests may be sent to ${site.email}.`,
         ],
       },
     ],
   },
   copyright: {
-    eyebrow: "版权",
-    title: "Prothymia 版权声明与政策",
+    eyebrow: "Copyright",
+    title: "Copyright Policy",
     intro: [
-      "Prothymia 致力于保护创作者的知识产权，并构建一个尊重原创、清晰透明的传播环境。本版权政策适用于 Prothymia 网站及关联平台发布的文字、图像、音频、视频及其他形式的内容。",
+      "Prothymia respects the rights of creators and aims to maintain a clear, responsible environment for publishing and sharing original work. This policy applies to text, images, audio, video, and other material published through Prothymia.",
     ],
     sections: [
       {
-        heading: "1. 原创内容版权归属",
+        heading: "1. Original work",
         bullets: [
-          { title: "编辑部创作", text: "由 Prothymia 编辑部独立创作或制作的文章、音视频及其他多媒体作品，其版权及相关权利归 Prothymia 及其相关权利主体所有，另有说明的除外。" },
-          { title: "投稿作者权益", text: "投稿作者对其创作并发布在 Prothymia 上的文章及原创内容保持完整的版权所有权。Prothymia 尊重创作者的精神权利与财产权利。" },
+          { title: "Editorial work", text: "Unless otherwise stated, rights in work created independently by the Prothymia editorial team belong to Prothymia or the relevant rights holder." },
+          { title: "Contributors", text: "A contributor retains full copyright in the contributor's original work published by Prothymia." },
         ],
       },
       {
-        heading: "2. 投稿与授权条款",
+        heading: "2. Contributor license",
         bullets: [
-          { title: "原创性保证", text: "投稿作者在向 Prothymia 提交作品时，应确保作品为原创，并未侵犯任何第三方的著作权、商标权、隐私权或其他合法权益。因投稿内容引起的版权纠纷，由投稿作者依法承担相应责任。" },
-          { title: "传播授权", text: "投稿作者同意授予 Prothymia 一项非独占的、全球范围内免费的使用许可，允许 Prothymia 在其线上网站、期刊及官方传播渠道对作品进行分发、传播、展示、编排及推广。" },
+          { title: "Originality", text: "Contributors are responsible for ensuring that submitted work is original or properly licensed and does not infringe third-party copyright, trademark, privacy, or other rights." },
+          { title: "License to Prothymia", text: "By submitting work for publication, a contributor grants Prothymia a nonexclusive, worldwide, royalty-free license to publish, distribute, display, format, edit, archive, and promote that work through Prothymia's official channels." },
         ],
       },
       {
-        heading: "3. 第三方素材及引用说明",
+        heading: "3. Third-party material",
         paragraphs: [
-          "Prothymia 力求对文章及音像内容中使用的第三方图片、视频、音乐等标明来源、作者或出处；如有遗漏，欢迎权利人联系我们更正。",
-          "第三方素材的版权归各自权利主体所有。对第三方材料的引用或使用应以适用法律、许可条件或合理使用原则为依据；非商业属性本身并不自动免除版权义务。",
+          "We aim to identify the source, author, or rights holder of third-party images, video, music, and other material when appropriate. If an attribution is missing or incorrect, a rights holder may contact us to request a correction.",
+          "Third-party rights remain with their respective owners. Use of third-party material must rely on applicable law, permission, license terms, or fair-use principles. Noncommercial status alone does not remove copyright obligations.",
         ],
       },
       {
-        heading: "4. 转载与使用规范",
+        heading: "4. Reuse and republication",
         bullets: [
-          { text: "未经 Prothymia 或相关原创权利人的明确书面许可，任何个人、媒体或机构不得出于商业目的复制、转载、摘编或建立镜像。" },
-          { text: "非商业性质的引用或分享，应注明原作者姓名及出处（Prothymia），并尽可能保留指向原始文章的链接；具体使用仍须遵守适用版权规则。" },
+          { text: "Commercial reproduction, republication, adaptation, or mirroring requires written permission from Prothymia or the relevant rights holder." },
+          { text: "Noncommercial quotation or sharing should identify the author and Prothymia as the source and, when possible, link to the original publication. All use remains subject to applicable copyright law." },
         ],
       },
       {
-        heading: "5. 版权申诉与联系方式",
+        heading: "5. Copyright claims",
         paragraphs: [
-          `如您认为本网站刊载的内容侵犯了您的合法版权，或对引用标注有疑问，请提供相关权属信息并联系 ${site.email}。我们将在核实后及时处理。`,
+          `If you believe material on this site infringes your rights, send relevant ownership information and the location of the material to ${site.email}. We will review the request and respond as appropriate.`,
         ],
       },
     ],
   },
   contact: {
-    eyebrow: "联系 Prothymia",
-    title: "联系我们",
+    eyebrow: "Contact",
+    title: "Contact Us",
     intro: [
-      "Prothymia 始终保持开放与连结。无论是深度探讨、投稿交流、版权建议，还是单纯与我们分享您的思考，都欢迎与我们取得联系。",
+      "Prothymia welcomes thoughtful correspondence, submissions, copyright questions, and ideas from readers.",
     ],
     sections: [
       {
-        heading: "1. 电子邮箱",
+        heading: "Email",
         paragraphs: [
-          `${site.email}（适用于日常咨询、文章交流、版权与隐私事务）`,
+          `${site.email} — for general inquiries, article correspondence, copyright matters, and privacy requests.`,
         ],
       },
       {
-        heading: "2. 投稿须知",
+        heading: "Submissions",
         paragraphs: [
-          "如果您希望在 Prothymia 发表作品，请将稿件或大纲发送至上述邮箱，并在邮件主题中注明【投稿】+ 拟定文章题目 + 创作者姓名/署名。",
+          "To propose a piece for publication, send the manuscript or an outline to the address above. Use the subject line: [Submission] + proposed title + author name or byline.",
         ],
         bullets: [
-          { title: "关注主题", text: "人生与存在、哲学思考、人权与尊严、环境与生态、公共议题。" },
-          { title: "稿件要求", text: "请确保作品为原创，并附上简短的作者简介及联系方式。我们会在收到邮件后的 7 个工作日内给予回复。" },
+          { title: "Subjects", text: "Life and existence, philosophy, human rights and dignity, environment and ecology, and public issues." },
+          { title: "What to include", text: "Please submit original work and include a brief author biography and a reliable way to contact you. We aim to reply within seven business days." },
         ],
-      },
-      {
-        heading: "",
-        paragraphs: ["我们期待听到来自每一个独特个体的声音。如果您有任何想法或建议，随时发送邮件即可。"],
       },
     ],
   },
   support: {
-    eyebrow: "支持与捐赠",
-    title: "支持独立写作。",
+    eyebrow: "Support",
+    title: "Support independent writing.",
     intro: [
-      "Prothymia 是一个非商业性的独立项目，由读者支持。经济支持有助于维持写作、编辑、图片授权以及网站的持续运营。",
-      "加密货币捐赠完全自愿。公共区块链交易通常不可逆，因此请在发送前确认资产、地址和网络。",
+      "Prothymia is a noncommercial independent project supported by readers. Contributions help sustain writing, editing, image licensing, and the continuing operation of the site.",
+      "Cryptocurrency contributions are voluntary and generally irreversible. Confirm the asset, address, and network before sending funds.",
     ],
     sections: [
       {
-        heading: "捐赠通道",
-        paragraphs: ["建议优先使用明确支持的网络与资产。使用错误的网络汇款可能导致资金永久丢失。"],
+        heading: "Contribution routes",
+        paragraphs: ["Use only a supported asset and network. Sending funds over the wrong network may result in permanent loss."],
       },
       {
-        heading: "",
-        paragraphs: ["衷心感谢大家的支持。"],
+        heading: "Thank you",
+        paragraphs: ["We are grateful for every reader who chooses to support Prothymia."],
+      },
+    ],
+  },
+  terms: {
+    eyebrow: "Terms",
+    title: "Terms of Use",
+    intro: [
+      "These terms describe the basic conditions for using Prothymia's website and services. By using the site, you agree to use it lawfully and in a way that does not interfere with other readers or the operation of the service.",
+    ],
+    sections: [
+      {
+        heading: "Use of the site",
+        paragraphs: ["You may read, link to, and share Prothymia pages for lawful purposes. Automated abuse, attempts to disrupt the service, unauthorized access, and unlawful use are not permitted."],
+      },
+      {
+        heading: "Editorial content",
+        paragraphs: ["Prothymia publishes editorial and informational material. Content may contain interpretation, analysis, or opinion and is not a substitute for professional legal, medical, financial, or other individualized advice."],
+      },
+      {
+        heading: "Intellectual property",
+        paragraphs: ["Copyright and reuse are governed by the Copyright Policy and by any rights notices attached to individual works."],
+      },
+      {
+        heading: "Availability and changes",
+        paragraphs: ["We may change, suspend, or discontinue parts of the site and may update these terms as the service evolves. The current version will be published here."],
+      },
+      {
+        heading: "Contact",
+        paragraphs: [`Questions about these terms may be sent to ${site.email}.`],
+      },
+    ],
+  },
+  policies: {
+    eyebrow: "Policies",
+    title: "Policies",
+    intro: [
+      "Prothymia's policies are intended to protect editorial independence, reader trust, creator rights, and the privacy of people who use the site.",
+    ],
+    sections: [
+      {
+        heading: "Editorial independence",
+        paragraphs: ["Editorial decisions are made independently of commercial pressure, traffic incentives, and donor influence. Support for Prothymia does not purchase editorial control."],
+      },
+      {
+        heading: "Corrections and updates",
+        paragraphs: ["When a material factual error is identified, we aim to correct it promptly and preserve the integrity of the published record. Routine edits that do not change the substance of a piece may be made without a separate notice."],
+      },
+      {
+        heading: "Submissions",
+        paragraphs: ["Submitted work should be original, accurately attributed, and free of undisclosed rights conflicts. Acceptance, editing, scheduling, and publication remain editorial decisions."],
+      },
+      {
+        heading: "Privacy and rights",
+        paragraphs: ["Our Privacy Policy explains how reader information is handled. Our Copyright Policy explains ownership, contributor licensing, third-party material, and republication."],
+      },
+      {
+        heading: "Contact",
+        paragraphs: [`Policy questions may be sent to ${site.email}.`],
       },
     ],
   },

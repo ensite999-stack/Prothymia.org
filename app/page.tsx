@@ -30,7 +30,7 @@ export default async function HomePage() {
         <div className="shell">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "1rem", marginBottom: "1.5rem" }}>
             <p className="eyebrow">Latest essays</p>
-            <Link href="/essays" style={{ color: "var(--brand)", fontSize: ".84rem" }}>View all</Link>
+            <Link href="/essays" style={{ color: "var(--muted)", fontSize: ".84rem" }}>View all</Link>
           </div>
           <ArticleList articles={articles} />
         </div>

@@ -53,6 +53,7 @@ export function Header() {
 
   return (
     <header className="site-header" data-scrolled={scrolled} data-hidden={hidden}>
+      <div className="header-slot header-slot-left"><SiteMenu /></div>
       <button
         className="brand-link brand-button"
         type="button"
@@ -63,9 +64,8 @@ export function Header() {
       >
         Prothymia
       </button>
-      <div className="header-actions">
+      <div className="header-slot header-slot-right">
         <Link className="search-link" href="/search">Search</Link>
-        <SiteMenu />
       </div>
     </header>
   );

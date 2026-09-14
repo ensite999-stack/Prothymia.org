@@ -1,32 +1,34 @@
-/* Motion and responsive refinements. Kept separate so interaction rules stay easy to audit. */
+/* Motion and responsive refinements. */
+.footer-inner { text-align: left; }
+
 .route-frame {
-  animation: route-enter 130ms cubic-bezier(.22, 1, .36, 1) both;
+  animation: route-enter 120ms cubic-bezier(.22, 1, .36, 1) both;
 }
 
 html[data-navigating="true"] .route-frame {
-  opacity: .78;
+  opacity: .82;
   transform: translateY(-1px);
-  transition: opacity 70ms ease, transform 70ms ease;
+  transition: opacity 65ms ease, transform 65ms ease;
 }
 
 @keyframes route-enter {
-  from { opacity: .76; transform: translateY(3px); }
+  from { opacity: .8; transform: translateY(2px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.menu-button span {
+.menu-glyph i {
   transform-origin: center;
   transition: transform 240ms cubic-bezier(.22, 1, .36, 1), opacity 150ms ease, width 220ms cubic-bezier(.22, 1, .36, 1);
 }
-.menu-button[data-open="true"] span:nth-child(1) {
+.menu-button[data-open="true"] .menu-glyph i:nth-child(1) {
   width: 20px;
   transform: translateY(6px) rotate(45deg);
 }
-.menu-button[data-open="true"] span:nth-child(2) {
+.menu-button[data-open="true"] .menu-glyph i:nth-child(2) {
   opacity: 0;
   transform: scaleX(.45);
 }
-.menu-button[data-open="true"] span:nth-child(3) {
+.menu-button[data-open="true"] .menu-glyph i:nth-child(3) {
   width: 20px;
   transform: translateY(-6px) rotate(-45deg);
 }
@@ -35,27 +37,35 @@ html[data-navigating="true"] .route-frame {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translate3d(0, -8px, 0) scale(.985);
-  transform-origin: top right;
+  transform: translate3d(0, -10px, 0);
+  transform-origin: top center;
   will-change: opacity, transform;
-  transition: opacity 160ms ease, transform 220ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 220ms;
+  transition: opacity 170ms ease, transform 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 240ms;
 }
 .menu-panel[data-open="true"] {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0);
   transition-delay: 0s;
 }
-.menu-panel nav > * {
-  transition: color 140ms ease, background 140ms ease, transform 180ms cubic-bezier(.22, 1, .36, 1);
+.menu-panel nav > a,
+.theme-switch {
+  transition: color 140ms ease, opacity 180ms ease, transform 220ms cubic-bezier(.22, 1, .36, 1);
 }
-.menu-panel nav > *:hover {
-  transform: translateX(2px);
+.menu-panel[data-open="false"] nav > a,
+.menu-panel[data-open="false"] .theme-switch {
+  opacity: .72;
+  transform: translateY(-3px);
+}
+.menu-panel[data-open="true"] nav > a,
+.menu-panel[data-open="true"] .theme-switch {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home-empty {
-  min-height: calc(100svh - 76px);
+  min-height: calc(100svh - 72px);
   display: grid;
   place-items: center;
   padding: clamp(3rem, 8vw, 7rem) 1.25rem;
@@ -63,14 +73,11 @@ html[data-navigating="true"] .route-frame {
 }
 .home-empty-motto {
   margin: 0;
-  color: var(--brand);
   font-family: var(--serif);
   font-size: clamp(1.7rem, 4.5vw, 3.4rem);
   font-style: italic;
   line-height: 1.18;
 }
-
-.footer-copy { margin-top: -.65rem; }
 
 @media (max-width: 900px) {
   .article-grid { grid-template-columns: 1fr; }
@@ -79,46 +86,24 @@ html[data-navigating="true"] .route-frame {
 
 @media (max-width: 760px) {
   .section { padding: clamp(2.6rem, 8vw, 4.5rem) 0; }
-  .menu-panel {
-    top: calc(100% + 10px);
-    right: -.35rem;
-    width: min(300px, calc(100vw - 1.4rem));
-    padding: .85rem;
-  }
-  .menu-panel a,
-  .menu-panel button { padding: .78rem .55rem; }
-  .site-footer {
-    gap: 1.15rem;
-    padding: 3.8rem 1rem 2rem;
-  }
-  .footer-brand { font-size: clamp(3.4rem, 17vw, 6rem); }
-  .footer-newsletter { width: min(390px, 100%); }
-  .footer-copy { margin-top: -.5rem; }
+  .shell, .narrow, .cover { width: min(100% - 2rem, 1160px); }
+  .home-empty { min-height: calc(100svh - 62px); }
 }
 
 @media (max-width: 480px) {
-  .site-header { min-height: 60px; padding-inline: .85rem; }
-  .site-header[data-scrolled="true"] { min-height: 50px; }
-  .brand-link { font-size: 1.88rem; }
-  .site-header[data-scrolled="true"] .brand-link { font-size: 1.62rem; }
-  .header-actions { gap: .55rem; }
-  .search-link { font-size: .74rem; letter-spacing: .09em; }
-  .menu-button { width: 30px; height: 30px; }
   .shell, .narrow, .cover { width: min(100% - 1.5rem, 1160px); }
   .display-title { font-size: clamp(2.75rem, 15vw, 4rem); }
   .page-title { font-size: clamp(2.35rem, 13vw, 3.5rem); }
   .article-header h1 { font-size: clamp(2.65rem, 14vw, 4.2rem); }
-  .footer-brand { font-size: clamp(3rem, 18vw, 4.8rem); }
-  .footer-subscribe { gap: .55rem; }
-  .footer-subscribe input,
-  .footer-subscribe button { min-width: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .route-frame,
   html[data-navigating="true"] .route-frame { animation: none; transition: none; transform: none; opacity: 1; }
-  .menu-button span,
+  .menu-glyph i,
   .menu-panel,
-  .menu-panel nav > * { transition: none; }
+  .menu-panel nav > a,
+  .theme-switch,
+  .brand-link { transition: none; }
 }
