@@ -2,9 +2,8 @@
   "name": "prothymia-org",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": "24.x"
-  },
+  "type": "module",
+  "engines": { "node": "24.x" },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,10 +11,6 @@
     "test": "node --experimental-strip-types --test tests/*.test.ts"
   },
   "dependencies": {
-    "@tiptap/extension-image": "3.31.3",
-    "@tiptap/extension-link": "3.31.3",
-    "@tiptap/react": "3.31.3",
-    "@tiptap/starter-kit": "3.31.3",
     "@vercel/blob": "2.8.0",
     "next": "16.3.4",
     "postgres": "3.4.7",
