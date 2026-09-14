@@ -39,7 +39,6 @@ export function FooterNewsletter() {
 
   return (
     <div className="footer-newsletter">
-      <p className="footer-newsletter-label">New writing, by email.</p>
       <form className="footer-subscribe" onSubmit={submit}>
         <label className="sr-only" htmlFor="footer-email">Email</label>
         <input id="footer-email" name="email" type="email" autoComplete="email" placeholder="Email address" required />
