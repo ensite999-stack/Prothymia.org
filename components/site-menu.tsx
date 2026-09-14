@@ -1,19 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
 
 export function SiteMenu() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const shell = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function close(event: MouseEvent) {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    function closeOutside(event: PointerEvent) {
       if (shell.current && !shell.current.contains(event.target as Node)) setOpen(false);
     }
-    document.addEventListener("mousedown", close);
-    return () => document.removeEventListener("mousedown", close);
+
+    function closeWithEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+
+    document.addEventListener("pointerdown", closeOutside);
+    document.addEventListener("keydown", closeWithEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOutside);
+      document.removeEventListener("keydown", closeWithEscape);
+    };
   }, []);
 
   return (
@@ -21,24 +36,29 @@ export function SiteMenu() {
       <button
         className="menu-button"
         type="button"
-        aria-label="Menu"
+        aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
+        aria-controls="site-menu-panel"
+        data-open={open}
         onClick={() => setOpen((value) => !value)}
       >
         <span /><span /><span />
       </button>
-      {open ? (
-        <div className="menu-panel">
-          <nav aria-label="Site menu">
-            <Link href="/essays" onClick={() => setOpen(false)}>Essays</Link>
-            <Link href="/about" onClick={() => setOpen(false)}>About Prothymia</Link>
-            <Link href="/newsletter" onClick={() => setOpen(false)}>Subscribe</Link>
-            <Link href="/contact" onClick={() => setOpen(false)}>Contact Prothymia</Link>
-            <Link href="/support" onClick={() => setOpen(false)}>Support</Link>
-            <ThemeToggle />
-          </nav>
-        </div>
-      ) : null}
+      <div
+        className="menu-panel"
+        id="site-menu-panel"
+        data-open={open}
+        aria-hidden={!open}
+      >
+        <nav aria-label="Site menu">
+          <Link href="/essays" onClick={() => setOpen(false)}>Essays</Link>
+          <Link href="/about" onClick={() => setOpen(false)}>About Prothymia</Link>
+          <Link href="/newsletter" onClick={() => setOpen(false)}>Subscribe</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}>Contact Prothymia</Link>
+          <Link href="/support" onClick={() => setOpen(false)}>Support</Link>
+          <ThemeToggle />
+        </nav>
+      </div>
     </div>
   );
 }

@@ -7,6 +7,15 @@ export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const articles = await listPublished({ limit: 10 });
+
+  if (!articles.length) {
+    return (
+      <section className="home-empty">
+        <p className="home-empty-motto">{site.motto}</p>
+      </section>
+    );
+  }
+
   return (
     <>
       <section className="home-hero">

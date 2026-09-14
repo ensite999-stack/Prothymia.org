@@ -13,6 +13,12 @@ export function Header() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    setScrolled(false);
+    setHidden(false);
+    previousY.current = 0;
+  }, [pathname]);
+
+  useEffect(() => {
     previousY.current = window.scrollY;
 
     function onScroll() {

@@ -8,15 +8,14 @@ export function Footer() {
       <div className="footer-brand" lang="en" translate="no">Prothymia</div>
       <p className="footer-motto">{site.motto}</p>
       <FooterNewsletter />
-      <nav className="footer-links" aria-label="Footer">
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/support">Support</Link>
-        <Link href="/privacy">Privacy</Link>
-        <Link href="/copyright">Copyright</Link>
-        <Link href="/feed.xml">RSS</Link>
+      <nav className="footer-links" aria-label="Footer" lang="zh-CN">
+        <Link href="/about">关于我们</Link>
+        <Link href="/privacy">隐私政策</Link>
+        <Link href="/copyright">版权声明</Link>
+        <Link href="/contact">联系我们</Link>
+        <Link href="/support">支持与捐赠</Link>
       </nav>
-      <p className="footer-copy" style={{ marginTop: "-.65rem" }}>©{new Date().getFullYear()} <span lang="en" translate="no">Prothymia</span> All Rights Reserved.</p>
+      <p className="footer-copy">©{new Date().getFullYear()} <span lang="en" translate="no">Prothymia</span> All Rights Reserved.</p>
     </footer>
   );
 }
