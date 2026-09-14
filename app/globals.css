@@ -201,12 +201,44 @@ main { min-height: 64vh; }
 .donation-box strong { display: block; margin-bottom: 0.55rem; color: var(--brand); }
 .donation-box code { overflow-wrap: anywhere; font-size: 0.82rem; }
 
+.admin-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: calc(100vh - 72px); }
+.admin-sidebar { position: sticky; top: 72px; height: calc(100vh - 72px); display: flex; flex-direction: column; border-right: 1px solid var(--line); background: var(--soft); overflow: hidden; }
+.admin-sidebar-head { display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-bottom: 1px solid var(--line); color: var(--brand); }
+.admin-sidebar-head strong { font-family: var(--serif); font-size: 1.35rem; }
+.admin-sidebar-head button, .admin-logout { border: 0; background: transparent; color: var(--brand); cursor: pointer; font-weight: 700; }
+.admin-article-list { flex: 1; overflow: auto; }
+.admin-article-list button { width: 100%; padding: 0.9rem 1rem; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); text-align: left; cursor: pointer; }
+.admin-article-list button.active { background: color-mix(in srgb, var(--brand) 9%, var(--paper)); }
+.admin-article-list span, .admin-article-list small { display: block; }
+.admin-article-list span { font-weight: 700; line-height: 1.35; }
+.admin-article-list small { margin-top: 0.3rem; color: var(--muted); line-height: 1.35; }
+.admin-logout { padding: 1rem; border-top: 1px solid var(--line); text-align: left; }
+.admin-editor { min-width: 0; padding: clamp(1.5rem, 4vw, 4rem); }
+.admin-title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.admin-title-row h1 { margin: 0; font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.04em; }
+.admin-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; justify-content: flex-end; }
+.admin-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.admin-fields .full { grid-column: 1 / -1; }
+.editor-shell { border: 1px solid var(--line); background: var(--paper); }
+.editor-toolbar { display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0.55rem; border-bottom: 1px solid var(--line); background: var(--soft); }
+.editor-toolbar button, .editor-upload { min-height: 34px; padding: 0.45rem 0.65rem; border: 1px solid var(--line); background: var(--paper); color: var(--text); cursor: pointer; font-size: 0.78rem; font-weight: 700; }
+.editor-upload { display: inline-flex; align-items: center; position: relative; overflow: hidden; }
+.editor-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.editor-area { min-height: 420px; padding: 1.2rem; outline: none; }
+.editor-area:focus { box-shadow: inset 0 0 0 1px var(--brand); }
+
 .site-footer { margin-top: 5rem; padding: 3rem 1.25rem 2.2rem; border-top: 1px solid var(--line); text-align: center; }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem 1.25rem; }
 .footer-links a { color: var(--muted); font-size: 0.84rem; text-decoration: none; }
 .footer-social { display: flex; justify-content: center; gap: 0.75rem; margin: 1.4rem 0; }
 .footer-social a { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent); border-radius: 50%; color: var(--brand); }
 .footer-copy { margin: 0; color: var(--muted); font-size: 0.76rem; }
+
+@media (max-width: 900px) {
+  .admin-layout { grid-template-columns: 1fr; }
+  .admin-sidebar { position: static; height: auto; max-height: 330px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .admin-article-list { max-height: 210px; }
+}
 
 @media (max-width: 760px) {
   .site-header { min-height: 64px; padding-inline: 1.1rem; }
@@ -216,4 +248,7 @@ main { min-height: 64vh; }
   .search-form { grid-template-columns: 1fr; }
   .donation-grid { grid-template-columns: 1fr; }
   .shell, .narrow, .cover { width: min(100% - 2rem, 1160px); }
+  .admin-fields { grid-template-columns: 1fr; }
+  .admin-title-row { align-items: flex-start; flex-direction: column; }
+  .admin-actions { justify-content: flex-start; }
 }
