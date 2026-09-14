@@ -8,8 +8,8 @@ export function Footer() {
       <p className="footer-motto">{site.motto}</p>
       <FooterNewsletter />
       <nav className="footer-links" aria-label="Footer">
-        <Link href="/about">About Prothymia</Link>
-        <Link href="/contact">Contact Prothymia</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
         <Link href="/support">Support</Link>
         <Link href="/privacy">Privacy</Link>
         <Link href="/copyright">Copyright</Link>
