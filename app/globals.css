@@ -35,20 +35,20 @@ img { max-width: 100%; }
   justify-content: space-between;
   min-height: 76px;
   padding: 0 max(1.25rem, calc((100vw - 1280px) / 2 + 1.5rem));
-  background: transparent;
+  background: #66023c;
+  color: #ffffff;
   transform: translateY(0);
-  transition: min-height 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  transition: min-height 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 .site-header[data-scrolled="true"] {
   min-height: 56px;
-  background: color-mix(in srgb, var(--bg) 95%, transparent);
-  box-shadow: 0 8px 28px rgb(0 0 0 / 0.055);
-  backdrop-filter: blur(16px);
+  background: #66023c;
+  box-shadow: 0 8px 28px rgb(46 0 27 / 0.18);
 }
 .site-header[data-hidden="true"] { transform: translateY(-115%); }
 
 .brand-link {
-  color: var(--brand);
+  color: #ffffff;
   font-family: var(--serif);
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
@@ -62,14 +62,14 @@ img { max-width: 100%; }
 
 .header-actions { display: flex; align-items: center; gap: 1.15rem; }
 .search-link {
-  color: #111111;
+  color: #ffffff;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
 }
-html[data-theme="dark"] .search-link { color: #f7f4f6; }
+html[data-theme="dark"] .search-link { color: #ffffff; }
 .menu-shell { position: relative; }
 .menu-button {
   width: 34px;
@@ -84,7 +84,7 @@ html[data-theme="dark"] .search-link { color: #f7f4f6; }
   background: transparent;
   cursor: pointer;
 }
-.menu-button span { display: block; height: 2px; background: var(--brand); border-radius: 99px; }
+.menu-button span { display: block; height: 2px; background: #ffffff; border-radius: 99px; }
 .menu-button span:nth-child(1), .menu-button span:nth-child(3) { width: 15px; }
 .menu-button span:nth-child(2) { width: 24px; }
 .menu-panel {
@@ -225,14 +225,22 @@ main { min-height: 64vh; }
   align-items: center;
   gap: 1.35rem;
   margin-top: 5rem;
-  padding: 4rem 1.25rem 2.4rem;
+  padding: 4.4rem 1.25rem 2.4rem;
   background: #66023c;
   color: #ffffff;
   text-align: center;
 }
-.footer-motto { margin: 0; color: #ffffff; font-family: var(--serif); font-size: 1.12rem; font-style: italic; }
-.footer-newsletter { width: min(420px, 100%); margin: .2rem auto .4rem; }
-.footer-newsletter-label { margin: 0 0 .75rem; color: #ffffff; font-family: var(--serif); font-size: 1rem; }
+.footer-brand {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--serif);
+  font-size: clamp(3.6rem, 10vw, 8rem);
+  font-weight: 700;
+  letter-spacing: -0.065em;
+  line-height: .86;
+}
+.footer-motto { margin: 0; color: rgb(255 255 255 / .9); font-family: var(--serif); font-size: 1.12rem; font-style: italic; }
+.footer-newsletter { width: min(420px, 100%); margin: .35rem auto .4rem; }
 .footer-subscribe { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: .8rem; }
 .footer-subscribe input {
   width: 100%;
