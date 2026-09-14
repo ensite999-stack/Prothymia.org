@@ -1,13 +1,13 @@
 :root {
-  --brand: #5B0B63;
+  --brand: #1A3A6B;
 }
 
 .site-header,
 .site-header[data-scrolled="true"],
 .site-footer {
-  background: #5B0B63;
+  background: #1A3A6B;
 }
 
 .site-header[data-scrolled="true"] {
-  box-shadow: 0 8px 28px rgb(39 5 43 / 0.2);
+  box-shadow: 0 8px 28px rgb(10 29 56 / 0.2);
 }
