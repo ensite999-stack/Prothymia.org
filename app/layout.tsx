@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Independent nonprofit magazine on human experience, philosophy, dignity, ecology, and public life.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://prothymia.org"),
   alternates: { types: { "application/rss+xml": "/feed.xml" } },
-  icons: { icon: "/icon.svg?v=6", shortcut: "/icon.svg?v=6", apple: "/icon.svg?v=6" },
+  icons: { icon: "/icon.svg?v=7", shortcut: "/icon.svg?v=7", apple: "/icon.svg?v=7" },
 };
 
 const themeScript = `try{var t=localStorage.getItem('prothymia-theme');if(t==='dark')document.documentElement.dataset.theme='dark'}catch(e){}`;
