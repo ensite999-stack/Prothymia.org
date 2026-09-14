@@ -5,6 +5,7 @@ import { FooterNewsletter } from "./footer-newsletter";
 export function Footer() {
   return (
     <footer className="site-footer">
+      <div className="footer-brand" lang="en" translate="no">Prothymia</div>
       <p className="footer-motto">{site.motto}</p>
       <FooterNewsletter />
       <nav className="footer-links" aria-label="Footer">
