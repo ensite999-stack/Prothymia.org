@@ -32,7 +32,7 @@ export function SiteMenu() {
           <nav aria-label="Site menu">
             <Link href="/essays" onClick={() => setOpen(false)}>Essays</Link>
             <Link href="/about" onClick={() => setOpen(false)}>About Prothymia</Link>
-            <Link href="/newsletter" onClick={() => setOpen(false)}>Newsletter</Link>
+            <Link href="/newsletter" onClick={() => setOpen(false)}>Subscribe</Link>
             <Link href="/contact" onClick={() => setOpen(false)}>Contact Prothymia</Link>
             <Link href="/support" onClick={() => setOpen(false)}>Support</Link>
             <ThemeToggle />
