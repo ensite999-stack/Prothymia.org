@@ -1,24 +1,38 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 export function NewsletterForm() {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (timer.current) clearTimeout(timer.current);
+  }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setBusy(true);
     setMessage("");
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const response = await fetch("/api/newsletter/subscribe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: form.get("email"), website: form.get("website") }),
     });
-    const data = (await response.json().catch(() => ({}))) as { message?: string; error?: string };
-    setMessage(data.message || data.error || "Please try again.");
-    if (response.ok) event.currentTarget.reset();
+    const data = (await response.json().catch(() => ({}))) as { error?: string };
+
+    if (response.ok) {
+      formElement.reset();
+      setMessage("订阅成功");
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(() => setMessage(""), 3000);
+    } else {
+      setMessage(data.error || "Please try again.");
+    }
+
     setBusy(false);
   }
 
@@ -28,10 +42,10 @@ export function NewsletterForm() {
         <label htmlFor="newsletter-email">Email</label>
         <input id="newsletter-email" name="email" type="email" autoComplete="email" required />
       </div>
-      <div style={{ position: "absolute", left: "-10000px" }} aria-hidden="true">
+      <div className="honeypot" aria-hidden="true">
         <label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       </div>
-      <label style={{ color: "var(--muted)", fontSize: ".84rem", lineHeight: 1.5 }}>
+      <label className="consent-line">
         <input type="checkbox" required /> I agree to receive Prothymia emails when a new article is published.
       </label>
       <button className="button" type="submit" disabled={busy}>{busy ? "Subscribing…" : "Subscribe"}</button>
