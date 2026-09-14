@@ -1,0 +1,47 @@
+/* Editorial footer and accent refinements. */
+.brand-link,
+.site-header[data-scrolled="true"] .brand-link,
+.footer-brand,
+.article-header .article-meta > span:first-child,
+.article-end > p:last-child {
+  color: var(--brand);
+}
+
+.button {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #F5F7FA;
+}
+
+.site-footer {
+  background: #F2F3F5;
+  color: #20252C;
+}
+
+.footer-identity {
+  border-bottom: 0;
+}
+
+.footer-brand {
+  color: var(--brand);
+}
+
+.footer-motto {
+  color: #4B535D;
+}
+
+.footer-links a {
+  border-bottom: 0;
+  color: #252B32;
+}
+
+.footer-links a:hover {
+  color: var(--brand);
+}
+
+.footer-copy {
+  margin-top: .7rem;
+  padding-top: .25rem;
+  border-top: 0;
+  color: #707985;
+}
