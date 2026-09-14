@@ -1,15 +1,55 @@
-/* Editorial footer and accent refinements. */
+/* Theme and editorial accent refinements. */
+:root,
+html[data-theme="dark"] {
+  --brand-deep: #5B0B63;
+  --brand: #B06BBB;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --brand-deep: #5B0B63;
+  --brand: #5B0B63;
+  --bg: #F2F3F5;
+  --paper: #FFFFFF;
+  --text: #16191E;
+  --copy: #343A43;
+  --muted: #737B88;
+  --line: #D4D8DE;
+  --soft: #E7E9ED;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0D1117;
+  --paper: #161B22;
+  --text: #F5F7FA;
+  --copy: #D7DCE3;
+  --muted: #8E97A6;
+  --line: #2A3038;
+  --soft: #161B22;
+}
+
+body,
+.site-header,
+.menu-panel,
+.field input,
+.field textarea,
+.field select,
+.search-form input,
+.search-form select {
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
 .brand-link,
 .site-header[data-scrolled="true"] .brand-link,
-.footer-brand,
 .article-header .article-meta > span:first-child,
 .article-end > p:last-child {
   color: var(--brand);
 }
 
 .button {
-  border-color: var(--brand);
-  background: var(--brand);
+  border-color: var(--brand-deep);
+  background: var(--brand-deep);
   color: #F5F7FA;
 }
 
@@ -23,7 +63,7 @@
 }
 
 .footer-brand {
-  color: var(--brand);
+  color: var(--brand-deep);
 }
 
 .footer-motto {
@@ -36,7 +76,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--brand);
+  color: var(--brand-deep);
 }
 
 .footer-copy {

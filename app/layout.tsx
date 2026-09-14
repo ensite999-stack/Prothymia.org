@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg?v=8", shortcut: "/icon.svg?v=8", apple: "/icon.svg?v=8" },
 };
 
-const themeScript = `try{var t=localStorage.getItem('prothymia-theme');document.documentElement.dataset.theme=t==='reading'?'reading':'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
+const themeScript = `try{var t=localStorage.getItem('prothymia-theme');document.documentElement.dataset.theme=t==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
