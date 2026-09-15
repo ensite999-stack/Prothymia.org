@@ -108,6 +108,10 @@ export function Header() {
 
   return (
     <header className="site-header" data-scrolled={scrolled} data-hidden={hidden}>
+      <div className="header-left">
+        <Link className="header-text-link search-link" href="/search">Search</Link>
+      </div>
+
       <button
         className="brand-link brand-button"
         type="button"
@@ -118,8 +122,9 @@ export function Header() {
       >
         Prothymia
       </button>
+
       <div className="header-actions">
-        <Link className="search-link" href="/search">Search</Link>
+        <Link className="header-text-link subscribe-link" href="/newsletter">Subscribe</Link>
         <div className="header-menu-slot"><SiteMenu /></div>
       </div>
     </header>

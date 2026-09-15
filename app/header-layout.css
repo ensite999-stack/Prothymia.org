@@ -1,0 +1,123 @@
+/* Centered editorial masthead. Imported last so it can neutralize legacy header rules. */
+.site-header,
+.site-header[data-scrolled="true"] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  justify-content: initial;
+  padding: 0 clamp(.8rem, 2.1vw, 1.5rem);
+}
+
+.header-left {
+  grid-column: 1;
+  min-width: 0;
+  min-height: var(--header-height);
+  display: flex;
+  align-items: stretch;
+  justify-self: start;
+}
+
+.brand-link,
+.site-header[data-scrolled="true"] .brand-link {
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.header-actions {
+  grid-column: 3;
+  min-width: 0;
+  min-height: var(--header-height);
+  display: flex;
+  align-items: stretch;
+  justify-self: end;
+  margin-left: 0;
+}
+
+.site-header .header-text-link,
+.site-header .search-link,
+.site-header .subscribe-link {
+  min-width: 0;
+  min-height: var(--header-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(.75rem, 1.8vw, 1.35rem);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: clamp(.78rem, .9vw, .9rem);
+  font-weight: 650;
+  letter-spacing: .015em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color 120ms ease, opacity 120ms ease;
+}
+
+.site-header .header-text-link:hover,
+.site-header .header-text-link:active,
+.site-header .search-link:hover,
+.site-header .subscribe-link:hover {
+  background: transparent;
+  color: var(--brand);
+}
+
+.site-header .header-text-link:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--text) 42%, transparent);
+  outline-offset: -5px;
+}
+
+.header-menu-slot {
+  width: 72px;
+  min-height: var(--header-height);
+  border-left: 0;
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .site-header[data-scrolled="true"] {
+    padding-inline: .65rem;
+  }
+
+  .site-header .header-text-link,
+  .site-header .search-link,
+  .site-header .subscribe-link {
+    padding-inline: .55rem;
+    font-size: .76rem;
+  }
+
+  .header-menu-slot {
+    width: 54px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header,
+  .site-header[data-scrolled="true"] {
+    padding-inline: .35rem;
+  }
+
+  .brand-link,
+  .site-header[data-scrolled="true"] .brand-link {
+    font-size: 1.65rem;
+  }
+
+  .site-header .header-text-link,
+  .site-header .search-link,
+  .site-header .subscribe-link {
+    padding-inline: .35rem;
+    font-size: .7rem;
+    letter-spacing: 0;
+  }
+
+  .header-menu-slot {
+    width: 46px;
+  }
+}

@@ -3,6 +3,7 @@ import "./globals.css";
 import "./interaction.css";
 import "./brand.css";
 import "./editorial-overrides.css";
+import "./header-layout.css";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import { NavigationEffects } from "../components/navigation-effects";
