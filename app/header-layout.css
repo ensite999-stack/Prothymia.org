@@ -19,7 +19,7 @@
 
 .brand-link,
 .site-header[data-scrolled="true"] .brand-link {
-  width: clamp(9.5rem, 15vw, 12.5rem);
+  width: clamp(12rem, 20vw, 16rem);
   min-height: var(--header-height);
   display: inline-flex;
   align-items: center;
@@ -28,6 +28,7 @@
   margin: 0 auto 0 0;
   padding: 0;
   border: 0;
+  overflow: visible;
   background: transparent;
   line-height: 0;
   text-align: left;
@@ -36,18 +37,25 @@
 
 .brand-wordmark {
   display: block;
-  width: 100%;
+  width: 112%;
   height: auto;
-  max-height: 52px;
+  max-height: 50px;
+  margin-left: -1.5%;
   object-fit: contain;
   object-position: left center;
-  filter: brightness(0) invert(1);
-  transition: opacity 110ms ease;
+  opacity: .78;
+  filter: brightness(0) invert(1) blur(.1px);
+  transform: scaleX(1.08);
+  transform-origin: left center;
+  -webkit-mask-image: linear-gradient(90deg, rgb(0 0 0 / .38) 0%, #000 9%, #000 78%, rgb(0 0 0 / .24) 100%);
+  mask-image: linear-gradient(90deg, rgb(0 0 0 / .38) 0%, #000 9%, #000 78%, rgb(0 0 0 / .24) 100%);
+  transition: opacity 140ms ease, transform 160ms ease;
 }
 
 .brand-link:hover .brand-wordmark,
 .brand-link:active .brand-wordmark {
-  opacity: .86;
+  opacity: .94;
+  transform: scaleX(1.08) translateY(-.5px);
 }
 
 .header-actions {
@@ -136,11 +144,21 @@
 
   .brand-link,
   .site-header[data-scrolled="true"] .brand-link {
-    width: 8.5rem;
+    width: 10rem;
   }
 
   .brand-wordmark {
-    max-height: 44px;
+    width: 110%;
+    max-height: 43px;
+    opacity: .8;
+    transform: scaleX(1.06);
+    -webkit-mask-image: linear-gradient(90deg, rgb(0 0 0 / .48) 0%, #000 10%, #000 80%, rgb(0 0 0 / .34) 100%);
+    mask-image: linear-gradient(90deg, rgb(0 0 0 / .48) 0%, #000 10%, #000 80%, rgb(0 0 0 / .34) 100%);
+  }
+
+  .brand-link:hover .brand-wordmark,
+  .brand-link:active .brand-wordmark {
+    transform: scaleX(1.06) translateY(-.5px);
   }
 
   .site-header .header-text-link,
@@ -164,11 +182,19 @@
 
   .brand-link,
   .site-header[data-scrolled="true"] .brand-link {
-    width: 7.25rem;
+    width: 8.4rem;
   }
 
   .brand-wordmark {
-    max-height: 39px;
+    width: 108%;
+    max-height: 37px;
+    opacity: .82;
+    transform: scaleX(1.04);
+  }
+
+  .brand-link:hover .brand-wordmark,
+  .brand-link:active .brand-wordmark {
+    transform: scaleX(1.04) translateY(-.5px);
   }
 
   .site-header .header-text-link,
