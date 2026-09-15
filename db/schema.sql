@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS prothymia_articles (
+CREATE TABLE IF NOT EXISTS kvisl_articles (
   id bigserial PRIMARY KEY,
   slug text NOT NULL UNIQUE,
   title text NOT NULL,
@@ -18,24 +18,24 @@ CREATE TABLE IF NOT EXISTS prothymia_articles (
   deleted_at timestamptz
 );
 
-CREATE INDEX IF NOT EXISTS prothymia_articles_public_idx
-  ON prothymia_articles (status, published_at DESC)
+CREATE INDEX IF NOT EXISTS kvisl_articles_public_idx
+  ON kvisl_articles (status, published_at DESC)
   WHERE status = 'published';
 
-CREATE INDEX IF NOT EXISTS prothymia_articles_topic_idx
-  ON prothymia_articles (topic, published_at DESC)
+CREATE INDEX IF NOT EXISTS kvisl_articles_topic_idx
+  ON kvisl_articles (topic, published_at DESC)
   WHERE status = 'published';
 
-CREATE TABLE IF NOT EXISTS prothymia_subscribers (
+CREATE TABLE IF NOT EXISTS kvisl_subscribers (
   id bigserial PRIMARY KEY,
   email text NOT NULL UNIQUE,
   subscribed_at timestamptz NOT NULL DEFAULT now()
 );
 
-CREATE TABLE IF NOT EXISTS prothymia_newsletter_deliveries (
+CREATE TABLE IF NOT EXISTS kvisl_newsletter_deliveries (
   id bigserial PRIMARY KEY,
-  article_id bigint NOT NULL REFERENCES prothymia_articles(id) ON DELETE CASCADE,
-  subscriber_id bigint NOT NULL REFERENCES prothymia_subscribers(id) ON DELETE CASCADE,
+  article_id bigint NOT NULL REFERENCES kvisl_articles(id) ON DELETE CASCADE,
+  subscriber_id bigint NOT NULL REFERENCES kvisl_subscribers(id) ON DELETE CASCADE,
   provider_id text,
   sent_at timestamptz NOT NULL DEFAULT now(),
   UNIQUE (article_id, subscriber_id)
