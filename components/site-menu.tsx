@@ -42,7 +42,7 @@ export function SiteMenu() {
         data-open={open}
         onClick={() => setOpen((value) => !value)}
       >
-        <em className="menu-glyph" aria-hidden="true"><i /><i /><i /></em>
+        <em className="menu-glyph" aria-hidden="true"><i /><i /></em>
         <b className="menu-word">Menu</b>
       </button>
       <div
