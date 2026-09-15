@@ -1,11 +1,21 @@
-/* Centered editorial masthead. Imported last so it can neutralize legacy header rules. */
+/* Brand masthead inspired by strong editorial magazine bars. Imported last. */
 .site-header,
 .site-header[data-scrolled="true"] {
+  --header-height: 72px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: stretch;
   justify-content: initial;
-  padding: 0 clamp(.8rem, 2.1vw, 1.5rem);
+  min-height: var(--header-height);
+  padding: 0 clamp(.85rem, 2vw, 1.4rem);
+  background: #702963;
+  color: #F7F9FC;
+  box-shadow: none;
+}
+
+.site-header[data-scrolled="true"] {
+  background: #702963;
+  box-shadow: 0 6px 18px rgb(0 0 0 / .14);
 }
 
 .header-left {
@@ -20,21 +30,21 @@
 .brand-link,
 .site-header[data-scrolled="true"] .brand-link {
   grid-column: 2;
-  justify-self: center;
+  justify-self: end;
   align-self: center;
   margin: 0;
-  text-align: center;
+  padding: 0;
+  color: #F7F9FC;
+  font-size: clamp(2.15rem, 3.25vw, 3.25rem);
+  line-height: .9;
+  text-align: right;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.header-actions {
-  grid-column: 3;
-  min-width: 0;
-  min-height: var(--header-height);
-  display: flex;
-  align-items: stretch;
-  justify-self: end;
-  margin-left: 0;
+.brand-link:hover,
+.brand-link:active {
+  color: #FFFFFF;
 }
 
 .site-header .header-text-link,
@@ -45,12 +55,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 clamp(.75rem, 1.8vw, 1.35rem);
+  padding: 0 clamp(.7rem, 1.45vw, 1.05rem);
   border: 0;
   background: transparent;
-  color: var(--text);
+  color: rgb(247 249 252 / .9);
   font-family: var(--sans);
-  font-size: clamp(.78rem, .9vw, .9rem);
+  font-size: clamp(.76rem, .85vw, .88rem);
   font-weight: 650;
   letter-spacing: .015em;
   line-height: 1;
@@ -58,7 +68,7 @@
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  transition: color 120ms ease, opacity 120ms ease;
+  transition: color 110ms ease, opacity 110ms ease;
 }
 
 .site-header .header-text-link:hover,
@@ -66,58 +76,96 @@
 .site-header .search-link:hover,
 .site-header .subscribe-link:hover {
   background: transparent;
-  color: var(--brand);
+  color: #FFFFFF;
 }
 
-.site-header .header-text-link:focus-visible {
-  outline: 1px solid color-mix(in srgb, var(--text) 42%, transparent);
+.site-header .header-text-link:focus-visible,
+.site-header .brand-link:focus-visible,
+.site-header .menu-button:focus-visible {
+  outline: 1px solid rgb(247 249 252 / .62);
   outline-offset: -5px;
 }
 
 .header-menu-slot {
-  width: 72px;
+  width: 54px;
   min-height: var(--header-height);
   border-left: 0;
+}
+
+.site-header .menu-button {
+  color: #F7F9FC;
+}
+
+.site-header .menu-glyph {
+  opacity: .6;
+}
+
+.site-header .menu-glyph i,
+.site-header .menu-glyph i:nth-child(1),
+.site-header .menu-glyph i:nth-child(2) {
+  background: #F7F9FC;
+}
+
+.site-header .menu-button:hover .menu-glyph,
+.site-header .menu-button:focus-visible .menu-glyph {
+  opacity: .84;
+}
+
+/* Remove the artificial light gap before the brand footer. */
+.site-footer {
+  margin-top: 0;
 }
 
 @media (max-width: 760px) {
   .site-header,
   .site-header[data-scrolled="true"] {
-    padding-inline: .65rem;
+    --header-height: 62px;
+    min-height: var(--header-height);
+    padding-inline: .6rem .75rem;
+  }
+
+  .brand-link,
+  .site-header[data-scrolled="true"] .brand-link {
+    font-size: 1.95rem;
   }
 
   .site-header .header-text-link,
   .site-header .search-link,
   .site-header .subscribe-link {
     padding-inline: .55rem;
-    font-size: .76rem;
-  }
-
-  .header-menu-slot {
-    width: 54px;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-header,
-  .site-header[data-scrolled="true"] {
-    padding-inline: .35rem;
-  }
-
-  .brand-link,
-  .site-header[data-scrolled="true"] .brand-link {
-    font-size: 1.65rem;
-  }
-
-  .site-header .header-text-link,
-  .site-header .search-link,
-  .site-header .subscribe-link {
-    padding-inline: .35rem;
-    font-size: .7rem;
-    letter-spacing: 0;
+    font-size: .74rem;
   }
 
   .header-menu-slot {
     width: 46px;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header,
+  .site-header[data-scrolled="true"] {
+    --header-height: 58px;
+    min-height: var(--header-height);
+    padding-inline: .35rem .55rem;
+  }
+
+  .brand-link,
+  .site-header[data-scrolled="true"] .brand-link {
+    font-size: clamp(1.58rem, 8.2vw, 1.9rem);
+  }
+
+  .subscribe-link {
+    display: none !important;
+  }
+
+  .site-header .header-text-link,
+  .site-header .search-link {
+    padding-inline: .42rem;
+    font-size: .71rem;
+    letter-spacing: 0;
+  }
+
+  .header-menu-slot {
+    width: 42px;
   }
 }
