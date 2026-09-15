@@ -5,53 +5,66 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { SiteMenu } from "./site-menu";
 
-type ScrollDirection = "up" | "down" | null;
-
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const lastY = useRef(0);
-  const directionAnchorY = useRef(0);
-  const direction = useRef<ScrollDirection>(null);
+  const movement = useRef(0);
   const frame = useRef<number | null>(null);
+  const hiddenRef = useRef(false);
+  const scrolledRef = useRef(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const y = Math.max(0, window.scrollY);
     lastY.current = y;
-    directionAnchorY.current = y;
-    direction.current = null;
-    setScrolled(y > 24);
+    movement.current = 0;
+    scrolledRef.current = y > 24;
+    hiddenRef.current = false;
+    setScrolled(scrolledRef.current);
     setHidden(false);
   }, [pathname]);
 
   useEffect(() => {
     lastY.current = Math.max(0, window.scrollY);
-    directionAnchorY.current = lastY.current;
+
+    function showHeader() {
+      if (!hiddenRef.current) return;
+      hiddenRef.current = false;
+      setHidden(false);
+    }
+
+    function hideHeader() {
+      if (hiddenRef.current) return;
+      hiddenRef.current = true;
+      setHidden(true);
+    }
 
     function updateHeader() {
       const y = Math.max(0, window.scrollY);
-      const previous = lastY.current;
-      const delta = y - previous;
+      const delta = y - lastY.current;
+      const nextScrolled = y > 24;
 
-      setScrolled(y > 24);
+      if (nextScrolled !== scrolledRef.current) {
+        scrolledRef.current = nextScrolled;
+        setScrolled(nextScrolled);
+      }
 
       if (y <= 32) {
-        setHidden(false);
-        direction.current = null;
-        directionAnchorY.current = y;
-      } else if (Math.abs(delta) > 1) {
-        const nextDirection: ScrollDirection = delta > 0 ? "down" : "up";
+        movement.current = 0;
+        showHeader();
+      } else if (Math.abs(delta) > 0.5) {
+        const sameDirection = movement.current === 0 || Math.sign(movement.current) === Math.sign(delta);
+        movement.current = sameDirection ? movement.current + delta : delta;
 
-        if (nextDirection !== direction.current) {
-          direction.current = nextDirection;
-          directionAnchorY.current = y;
+        if (movement.current >= 8 && y > 84) {
+          hideHeader();
+          movement.current = 0;
+        } else if (movement.current <= -5) {
+          showHeader();
+          movement.current = 0;
         }
-
-        const travel = Math.abs(y - directionAnchorY.current);
-        if (nextDirection === "down" && y > 120 && travel >= 32) setHidden(true);
-        if (nextDirection === "up" && travel >= 18) setHidden(false);
       }
 
       lastY.current = y;
@@ -63,9 +76,22 @@ export function Header() {
       frame.current = window.requestAnimationFrame(updateHeader);
     }
 
+    function resetScrollBaseline() {
+      lastY.current = Math.max(0, window.scrollY);
+      movement.current = 0;
+    }
+
+    function onVisibilityChange() {
+      if (!document.hidden) resetScrollBaseline();
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("pageshow", resetScrollBaseline);
+    document.addEventListener("visibilitychange", onVisibilityChange);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pageshow", resetScrollBaseline);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       if (frame.current !== null) window.cancelAnimationFrame(frame.current);
     };
   }, []);
