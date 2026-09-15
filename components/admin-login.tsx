@@ -26,7 +26,7 @@ export function AdminLogin() {
     <section className="section">
       <div className="narrow">
         <p className="eyebrow">Private Access</p>
-        <h1 className="page-title">Prothymia</h1>
+        <h1 className="page-title">Kvisl</h1>
         <form className="form-stack" onSubmit={submit}>
           <div className="field">
             <label htmlFor="private-password">Password</label>
