@@ -22,8 +22,24 @@ export function ThemeToggle() {
     <div className="theme-switch" role="group" aria-label="Appearance">
       <span>Appearance</span>
       <div className="theme-options">
-        <button type="button" data-active={theme === "light"} onClick={() => apply("light")}>Light</button>
-        <button type="button" data-active={theme === "dark"} onClick={() => apply("dark")}>Dark</button>
+        <button
+          type="button"
+          data-theme-value="light"
+          data-active={theme === "light"}
+          aria-pressed={theme === "light"}
+          onClick={() => apply("light")}
+        >
+          Light
+        </button>
+        <button
+          type="button"
+          data-theme-value="dark"
+          data-active={theme === "dark"}
+          aria-pressed={theme === "dark"}
+          onClick={() => apply("dark")}
+        >
+          Dark
+        </button>
       </div>
     </div>
   );

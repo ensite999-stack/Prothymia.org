@@ -5,40 +5,69 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { SiteMenu } from "./site-menu";
 
+type ScrollDirection = "up" | "down" | null;
+
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
-  const previousY = useRef(0);
+  const lastY = useRef(0);
+  const directionAnchorY = useRef(0);
+  const direction = useRef<ScrollDirection>(null);
+  const frame = useRef<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    setScrolled(false);
+    const y = Math.max(0, window.scrollY);
+    lastY.current = y;
+    directionAnchorY.current = y;
+    direction.current = null;
+    setScrolled(y > 24);
     setHidden(false);
-    previousY.current = 0;
   }, [pathname]);
 
   useEffect(() => {
-    previousY.current = window.scrollY;
+    lastY.current = Math.max(0, window.scrollY);
+    directionAnchorY.current = lastY.current;
 
-    function onScroll() {
-      const y = window.scrollY;
-      const delta = y - previousY.current;
+    function updateHeader() {
+      const y = Math.max(0, window.scrollY);
+      const previous = lastY.current;
+      const delta = y - previous;
 
-      if (y <= 24) {
-        setScrolled(false);
+      setScrolled(y > 24);
+
+      if (y <= 32) {
         setHidden(false);
-      } else {
-        setScrolled(true);
-        if (delta > 7) setHidden(true);
-        if (delta < -5) setHidden(false);
+        direction.current = null;
+        directionAnchorY.current = y;
+      } else if (Math.abs(delta) > 1) {
+        const nextDirection: ScrollDirection = delta > 0 ? "down" : "up";
+
+        if (nextDirection !== direction.current) {
+          direction.current = nextDirection;
+          directionAnchorY.current = y;
+        }
+
+        const travel = Math.abs(y - directionAnchorY.current);
+        if (nextDirection === "down" && y > 120 && travel >= 32) setHidden(true);
+        if (nextDirection === "up" && travel >= 18) setHidden(false);
       }
 
-      previousY.current = y;
+      lastY.current = y;
+      frame.current = null;
+    }
+
+    function onScroll() {
+      if (frame.current !== null) return;
+      frame.current = window.requestAnimationFrame(updateHeader);
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame.current !== null) window.cancelAnimationFrame(frame.current);
+    };
   }, []);
 
   function onBrandClick() {
