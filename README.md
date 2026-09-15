@@ -23,7 +23,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Create a PostgreSQL database and apply `db/schema.sql`. Set `DATABASE_URL`, `ADMIN_PASSWORD`, and an independent `ADMIN_SESSION_SECRET` of at least 32 random characters. Private access is at `/admin`.
+For a fresh PostgreSQL database, apply `db/schema.sql`. If upgrading an existing installation created before the Kvisl rename, apply `db/migrate-to-kvisl.sql` once before deploying the new code. Set `DATABASE_URL`, `ADMIN_PASSWORD`, and an independent `ADMIN_SESSION_SECRET` of at least 32 random characters. Private access is at `/admin`.
 
 ## Vercel configuration
 
