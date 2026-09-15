@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   const denied = authorizeAdmin(request);
   if (denied) return denied;
   if (!process.env.BLOB_READ_WRITE_TOKEN) return problem("Image storage is not configured.", 503);
-  const result = await list({ prefix: "prothymia/", limit: 100 });
+  const result = await list({ prefix: "kvisl/", limit: 100 });
   return json({ media: result.blobs.map((blob) => ({ url: blob.url, name: blob.pathname })) });
 }
 
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     (file.type === "image/webp" && ascii(bytes.subarray(0, 4)) === "RIFF" && ascii(bytes.subarray(8, 12)) === "WEBP");
   if (!valid) return problem("The file contents do not match its image format.", 400);
   const ext = allowed.get(file.type)!;
-  const blob = await put(`prothymia/${crypto.randomUUID()}.${ext}`, buffer, {
+  const blob = await put(`kvisl/${crypto.randomUUID()}.${ext}`, buffer, {
     access: "public",
     contentType: file.type,
     addRandomSuffix: false,
