@@ -143,7 +143,7 @@ export function AdminDesk({ initialArticles }: { initialArticles: Article[] }) {
     <section className="admin-layout">
       <aside className="admin-sidebar">
         <div className="admin-sidebar-head">
-          <strong>Prothymia</strong>
+          <strong>Kvisl</strong>
           <button type="button" onClick={() => { setOriginalSlug(null); setDraft(emptyDraft()); setMessage(""); }}>New</button>
         </div>
         <div className="admin-article-list">
