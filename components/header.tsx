@@ -113,10 +113,10 @@ export function Header() {
         type="button"
         lang="en"
         translate="no"
-        aria-label={pathname === "/" ? "Prothymia — back to top" : "Prothymia — go back"}
+        aria-label={pathname === "/" ? "Kvisl — back to top" : "Kvisl — go back"}
         onClick={onBrandClick}
       >
-        Prothymia
+        Kvisl
       </button>
 
       <div className="header-actions">
