@@ -58,7 +58,7 @@ export async function listPublished(options: {
   const topic = (options.topic || "").trim();
   const like = `%${query}%`;
   const rows = await sql`
-    SELECT * FROM prothymia_articles
+    SELECT * FROM kvisl_articles
     WHERE status = 'published'
       AND published_at IS NOT NULL
       AND published_at <= now()
@@ -74,7 +74,7 @@ export async function listTopics(): Promise<string[]> {
   const sql = database();
   if (!sql) return [];
   const rows = await sql`
-    SELECT DISTINCT topic FROM prothymia_articles
+    SELECT DISTINCT topic FROM kvisl_articles
     WHERE status = 'published' AND published_at <= now() AND topic <> 'Essay'
     ORDER BY topic ASC
   `;
@@ -85,7 +85,7 @@ export async function publishedArticle(slug: string): Promise<Article | null> {
   const sql = database();
   if (!sql) return null;
   const rows = await sql`
-    SELECT * FROM prothymia_articles
+    SELECT * FROM kvisl_articles
     WHERE slug = ${slug} AND status = 'published'
       AND published_at IS NOT NULL AND published_at <= now()
     LIMIT 1
@@ -97,7 +97,7 @@ export async function listAdminArticles(): Promise<Article[]> {
   const sql = database();
   if (!sql) return [];
   const rows = await sql`
-    SELECT * FROM prothymia_articles
+    SELECT * FROM kvisl_articles
     WHERE status <> 'deleted'
     ORDER BY updated_at DESC, id DESC
     LIMIT 250
@@ -109,7 +109,7 @@ export async function adminArticle(slug: string): Promise<Article | null> {
   const sql = database();
   if (!sql) return null;
   const rows = await sql`
-    SELECT * FROM prothymia_articles WHERE slug = ${slug} AND status <> 'deleted' LIMIT 1
+    SELECT * FROM kvisl_articles WHERE slug = ${slug} AND status <> 'deleted' LIMIT 1
   `;
   return rows[0] ? articleFromRow(rows[0]) : null;
 }
@@ -117,7 +117,7 @@ export async function adminArticle(slug: string): Promise<Article | null> {
 export async function createArticle(input: ArticleInput): Promise<Article> {
   const sql = requireDatabase();
   const rows = await sql`
-    INSERT INTO prothymia_articles (
+    INSERT INTO kvisl_articles (
       slug, title, dek, body_html, topic, status, published_at, featured,
       cover_url, cover_alt, cover_credit, sources
     ) VALUES (
@@ -132,7 +132,7 @@ export async function createArticle(input: ArticleInput): Promise<Article> {
 export async function updateArticle(slug: string, input: ArticleInput): Promise<Article> {
   const sql = requireDatabase();
   const rows = await sql`
-    UPDATE prothymia_articles SET
+    UPDATE kvisl_articles SET
       slug = ${input.slug},
       title = ${input.title},
       dek = ${input.dek},
@@ -156,7 +156,7 @@ export async function updateArticle(slug: string, input: ArticleInput): Promise<
 export async function deleteArticle(slug: string): Promise<void> {
   const sql = requireDatabase();
   await sql`
-    UPDATE prothymia_articles
+    UPDATE kvisl_articles
     SET status = 'deleted', deleted_at = now(), updated_at = now()
     WHERE slug = ${slug} AND status <> 'deleted'
   `;
@@ -166,7 +166,7 @@ export async function pendingAnnouncements(): Promise<Article[]> {
   const sql = database();
   if (!sql) return [];
   const rows = await sql`
-    SELECT * FROM prothymia_articles
+    SELECT * FROM kvisl_articles
     WHERE status = 'published' AND published_at <= now() AND announced_at IS NULL
     ORDER BY published_at ASC, id ASC
     LIMIT 25
@@ -176,7 +176,7 @@ export async function pendingAnnouncements(): Promise<Article[]> {
 
 export async function markAnnounced(articleId: number): Promise<void> {
   const sql = requireDatabase();
-  await sql`UPDATE prothymia_articles SET announced_at = now() WHERE id = ${articleId}`;
+  await sql`UPDATE kvisl_articles SET announced_at = now() WHERE id = ${articleId}`;
 }
 
 export type Subscriber = { id: number; email: string };
@@ -184,7 +184,7 @@ export type Subscriber = { id: number; email: string };
 export async function subscribe(email: string): Promise<Subscriber> {
   const sql = requireDatabase();
   const rows = await sql`
-    INSERT INTO prothymia_subscribers (email)
+    INSERT INTO kvisl_subscribers (email)
     VALUES (${email})
     ON CONFLICT (email) DO UPDATE SET subscribed_at = now()
     RETURNING id, email
@@ -195,14 +195,14 @@ export async function subscribe(email: string): Promise<Subscriber> {
 export async function subscribers(): Promise<Subscriber[]> {
   const sql = database();
   if (!sql) return [];
-  const rows = await sql`SELECT id, email FROM prothymia_subscribers ORDER BY id ASC`;
+  const rows = await sql`SELECT id, email FROM kvisl_subscribers ORDER BY id ASC`;
   return rows.map((row) => ({ id: Number(row.id), email: String(row.email) }));
 }
 
 export async function deliveryExists(articleId: number, subscriberId: number): Promise<boolean> {
   const sql = requireDatabase();
   const rows = await sql`
-    SELECT 1 FROM prothymia_newsletter_deliveries
+    SELECT 1 FROM kvisl_newsletter_deliveries
     WHERE article_id = ${articleId} AND subscriber_id = ${subscriberId}
     LIMIT 1
   `;
@@ -216,7 +216,7 @@ export async function recordDelivery(
 ): Promise<void> {
   const sql = requireDatabase();
   await sql`
-    INSERT INTO prothymia_newsletter_deliveries (article_id, subscriber_id, provider_id)
+    INSERT INTO kvisl_newsletter_deliveries (article_id, subscriber_id, provider_id)
     VALUES (${articleId}, ${subscriberId}, ${providerId})
     ON CONFLICT (article_id, subscriber_id) DO NOTHING
   `;
@@ -225,10 +225,10 @@ export async function recordDelivery(
 export async function unsubscribe(email: string): Promise<void> {
   const sql = requireDatabase();
   await sql.begin(async (tx) => {
-    const rows = await tx`SELECT id FROM prothymia_subscribers WHERE email = ${email}`;
+    const rows = await tx`SELECT id FROM kvisl_subscribers WHERE email = ${email}`;
     if (!rows[0]) return;
     const subscriberId = Number(rows[0].id);
-    await tx`DELETE FROM prothymia_newsletter_deliveries WHERE subscriber_id = ${subscriberId}`;
-    await tx`DELETE FROM prothymia_subscribers WHERE id = ${subscriberId}`;
+    await tx`DELETE FROM kvisl_newsletter_deliveries WHERE subscriber_id = ${subscriberId}`;
+    await tx`DELETE FROM kvisl_subscribers WHERE id = ${subscriberId}`;
   });
 }
