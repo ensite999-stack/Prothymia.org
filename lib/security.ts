@@ -1,6 +1,6 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 
-export const SESSION_COOKIE = "prothymia_private";
+export const SESSION_COOKIE = "kvisl_private";
 const SESSION_MS = 12 * 60 * 60 * 1000;
 
 function secret(): string {
