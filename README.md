@@ -1,8 +1,8 @@
-# Prothymia
+# Kvisl
 
 **To attend is to inhabit.**
 
-This repository is a clean-room rewrite of Prothymia for Vercel. It is intentionally independent of the previous implementation and contains no Cloudflare, OpenNext, or vinext deployment path.
+This repository is a clean-room rewrite of Kvisl for Vercel. It is intentionally independent of the previous implementation and contains no Cloudflare, OpenNext, or vinext deployment path.
 
 ## Stack
 
