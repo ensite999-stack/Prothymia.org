@@ -111,12 +111,10 @@ export function Header() {
       <button
         className="brand-link brand-button"
         type="button"
-        lang="en"
-        translate="no"
         aria-label={pathname === "/" ? "Kvisl — back to top" : "Kvisl — go back"}
         onClick={onBrandClick}
       >
-        Kvisl
+        <img className="brand-wordmark" src="/kvisl-wordmark.svg?v=1" alt="Kvisl" />
       </button>
 
       <div className="header-actions">

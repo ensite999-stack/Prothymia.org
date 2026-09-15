@@ -19,20 +19,35 @@
 
 .brand-link,
 .site-header[data-scrolled="true"] .brand-link {
+  width: clamp(9.5rem, 15vw, 12.5rem);
+  min-height: var(--header-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   align-self: center;
   margin: 0 auto 0 0;
   padding: 0;
-  color: #F7F9FC;
-  font-size: clamp(2.15rem, 3.25vw, 3.25rem);
-  line-height: .9;
+  border: 0;
+  background: transparent;
+  line-height: 0;
   text-align: left;
-  white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
 }
 
-.brand-link:hover,
-.brand-link:active {
-  color: #FFFFFF;
+.brand-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 52px;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1);
+  transition: opacity 110ms ease;
+}
+
+.brand-link:hover .brand-wordmark,
+.brand-link:active .brand-wordmark {
+  opacity: .86;
 }
 
 .header-actions {
@@ -121,7 +136,11 @@
 
   .brand-link,
   .site-header[data-scrolled="true"] .brand-link {
-    font-size: 1.95rem;
+    width: 8.5rem;
+  }
+
+  .brand-wordmark {
+    max-height: 44px;
   }
 
   .site-header .header-text-link,
@@ -145,7 +164,11 @@
 
   .brand-link,
   .site-header[data-scrolled="true"] .brand-link {
-    font-size: clamp(1.58rem, 8.2vw, 1.9rem);
+    width: 7.25rem;
+  }
+
+  .brand-wordmark {
+    max-height: 39px;
   }
 
   .site-header .header-text-link,

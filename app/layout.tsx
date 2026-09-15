@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Independent nonprofit magazine on human experience, philosophy, dignity, ecology, and public life.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://kvisl.com"),
   alternates: { types: { "application/rss+xml": "/feed.xml" } },
-  icons: { icon: "/icon.svg?v=13", shortcut: "/icon.svg?v=13", apple: "/icon.svg?v=13" },
+  icons: { icon: "/icon.svg?v=14", shortcut: "/icon.svg?v=14", apple: "/icon.svg?v=14" },
 };
 
 const themeScript = `try{var t=localStorage.getItem('kvisl-theme');document.documentElement.dataset.theme=t==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
