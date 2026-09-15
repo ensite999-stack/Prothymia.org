@@ -15,7 +15,7 @@ export function ThemeToggle() {
   function apply(next: Theme) {
     setTheme(next);
     document.documentElement.dataset.theme = next;
-    localStorage.setItem("prothymia-theme", next);
+    localStorage.setItem("kvisl-theme", next);
   }
 
   return (
