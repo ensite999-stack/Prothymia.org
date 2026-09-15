@@ -1,8 +1,8 @@
 export const site = {
-  name: "Prothymia",
-  title: "Prothymia — To attend is to inhabit.",
+  name: "Kvisl",
+  title: "Kvisl — To attend is to inhabit.",
   motto: "To attend is to inhabit.",
-  email: "Prothymia@Prothymia.org",
+  email: "hello@kvisl.com",
   author: "Hollis H. Jiang",
   color: "#702963",
   facebook: "https://www.facebook.com/share/1F1tJsuhfF/",
@@ -12,7 +12,7 @@ export const site = {
 } as const;
 
 export function siteUrl(): string {
-  return (process.env.NEXT_PUBLIC_SITE_URL || "https://prothymia.org").replace(/\/$/, "");
+  return (process.env.NEXT_PUBLIC_SITE_URL || "https://kvisl.com").replace(/\/$/, "");
 }
 
 export type StaticSection = {
@@ -31,9 +31,9 @@ export type StaticPage = {
 export const staticPages: Record<string, StaticPage> = {
   about: {
     eyebrow: "About",
-    title: "About Prothymia",
+    title: "About Kvisl",
     intro: [
-      "Prothymia is an independent nonprofit organization. The name draws on an ancient Greek idea of a willing and eager disposition toward action: a readiness to engage, respond, and take part.",
+      "Kvisl is an independent nonprofit organization. The name comes from Old Norse kvísl, meaning a branch, fork, or tributary—an image of ideas diverging, converging, and flowing onward.",
       "In an age of fragmented information and scarce attention, we choose a quieter path: careful observation, sustained thought, and an independent view of the relationship between people and the world.",
     ],
     sections: [
@@ -51,8 +51,8 @@ export const staticPages: Record<string, StaticPage> = {
       {
         heading: "Our independence",
         paragraphs: [
-          "As a noncommercial magazine, Prothymia does not allow commercial interests or traffic algorithms to determine its editorial direction. We do not chase every trend, manufacture panic, or optimize writing for empty attention.",
-          "We believe independence is a condition of free thought. Prothymia is intended to be a place where readers can slow down, think carefully, and encounter writing that tries to make the world more intelligible.",
+          "As a noncommercial magazine, Kvisl does not allow commercial interests or traffic algorithms to determine its editorial direction. We do not chase every trend, manufacture panic, or optimize writing for empty attention.",
+          "We believe independence is a condition of free thought. Kvisl is intended to be a place where readers can slow down, think carefully, and encounter writing that tries to make the world more intelligible.",
         ],
       },
     ],
@@ -61,14 +61,14 @@ export const staticPages: Record<string, StaticPage> = {
     eyebrow: "Privacy",
     title: "Privacy Policy",
     intro: [
-      "Prothymia respects the privacy of its readers. As an independent, noncommercial organization, we collect only the information reasonably necessary to operate the site and provide the newsletter.",
+      "Kvisl respects the privacy of its readers. As an independent, noncommercial organization, we collect only the information reasonably necessary to operate the site and provide the newsletter.",
     ],
     sections: [
       {
         heading: "1. Information we collect and use",
         paragraphs: ["We limit collection to information needed for basic site operation and reader-requested services:"],
         bullets: [
-          { title: "Email address", text: "If you subscribe, we use your email address to send subscription confirmation, new-article notices, and necessary service messages. Prothymia does not sell or rent your email address and does not use it for advertising. Our email service provider necessarily processes the address in order to deliver mail." },
+          { title: "Email address", text: "If you subscribe, we use your email address to send subscription confirmation, new-article notices, and necessary service messages. Kvisl does not sell or rent your email address and does not use it for advertising. Our email service provider necessarily processes the address in order to deliver mail." },
           { title: "Basic access data", text: "Hosting and security infrastructure may provide aggregate information such as page views, unique visitors, approximate country or city, and browser or operating-system categories. At the request level, infrastructure may also process technical data such as IP address, User-Agent, and timestamps. We do not use this information for cross-site tracking or user profiling." },
         ],
       },
@@ -106,21 +106,21 @@ export const staticPages: Record<string, StaticPage> = {
     eyebrow: "Copyright",
     title: "Copyright Policy",
     intro: [
-      "Prothymia respects the rights of creators and aims to maintain a clear, responsible environment for publishing and sharing original work. This policy applies to text, images, audio, video, and other material published through Prothymia.",
+      "Kvisl respects the rights of creators and aims to maintain a clear, responsible environment for publishing and sharing original work. This policy applies to text, images, audio, video, and other material published through Kvisl.",
     ],
     sections: [
       {
         heading: "1. Original work",
         bullets: [
-          { title: "Editorial work", text: "Unless otherwise stated, rights in work created independently by the Prothymia editorial team belong to Prothymia or the relevant rights holder." },
-          { title: "Contributors", text: "A contributor retains full copyright in the contributor's original work published by Prothymia." },
+          { title: "Editorial work", text: "Unless otherwise stated, rights in work created independently by the Kvisl editorial team belong to Kvisl or the relevant rights holder." },
+          { title: "Contributors", text: "A contributor retains full copyright in the contributor's original work published by Kvisl." },
         ],
       },
       {
         heading: "2. Contributor license",
         bullets: [
           { title: "Originality", text: "Contributors are responsible for ensuring that submitted work is original or properly licensed and does not infringe third-party copyright, trademark, privacy, or other rights." },
-          { title: "License to Prothymia", text: "By submitting work for publication, a contributor grants Prothymia a nonexclusive, worldwide, royalty-free license to publish, distribute, display, format, edit, archive, and promote that work through Prothymia's official channels." },
+          { title: "License to Kvisl", text: "By submitting work for publication, a contributor grants Kvisl a nonexclusive, worldwide, royalty-free license to publish, distribute, display, format, edit, archive, and promote that work through Kvisl's official channels." },
         ],
       },
       {
@@ -133,8 +133,8 @@ export const staticPages: Record<string, StaticPage> = {
       {
         heading: "4. Reuse and republication",
         bullets: [
-          { text: "Commercial reproduction, republication, adaptation, or mirroring requires written permission from Prothymia or the relevant rights holder." },
-          { text: "Noncommercial quotation or sharing should identify the author and Prothymia as the source and, when possible, link to the original publication. All use remains subject to applicable copyright law." },
+          { text: "Commercial reproduction, republication, adaptation, or mirroring requires written permission from Kvisl or the relevant rights holder." },
+          { text: "Noncommercial quotation or sharing should identify the author and Kvisl as the source and, when possible, link to the original publication. All use remains subject to applicable copyright law." },
         ],
       },
       {
@@ -149,7 +149,7 @@ export const staticPages: Record<string, StaticPage> = {
     eyebrow: "Contact",
     title: "Contact Us",
     intro: [
-      "Prothymia welcomes thoughtful correspondence, submissions, copyright questions, and ideas from readers.",
+      "Kvisl welcomes thoughtful correspondence, submissions, copyright questions, and ideas from readers.",
     ],
     sections: [
       {
@@ -174,7 +174,7 @@ export const staticPages: Record<string, StaticPage> = {
     eyebrow: "Support",
     title: "Support independent writing.",
     intro: [
-      "Prothymia is a noncommercial independent project supported by readers. Contributions help sustain writing, editing, image licensing, and the continuing operation of the site.",
+      "Kvisl is a noncommercial independent project supported by readers. Contributions help sustain writing, editing, image licensing, and the continuing operation of the site.",
       "Cryptocurrency contributions are voluntary and generally irreversible. Confirm the asset, address, and network before sending funds.",
     ],
     sections: [
@@ -184,7 +184,7 @@ export const staticPages: Record<string, StaticPage> = {
       },
       {
         heading: "Thank you",
-        paragraphs: ["We are grateful for every reader who chooses to support Prothymia."],
+        paragraphs: ["We are grateful for every reader who chooses to support Kvisl."],
       },
     ],
   },
@@ -192,16 +192,16 @@ export const staticPages: Record<string, StaticPage> = {
     eyebrow: "Terms",
     title: "Terms of Use",
     intro: [
-      "These terms describe the basic conditions for using Prothymia's website and services. By using the site, you agree to use it lawfully and in a way that does not interfere with other readers or the operation of the service.",
+      "These terms describe the basic conditions for using Kvisl's website and services. By using the site, you agree to use it lawfully and in a way that does not interfere with other readers or the operation of the service.",
     ],
     sections: [
       {
         heading: "Use of the site",
-        paragraphs: ["You may read, link to, and share Prothymia pages for lawful purposes. Automated abuse, attempts to disrupt the service, unauthorized access, and unlawful use are not permitted."],
+        paragraphs: ["You may read, link to, and share Kvisl pages for lawful purposes. Automated abuse, attempts to disrupt the service, unauthorized access, and unlawful use are not permitted."],
       },
       {
         heading: "Editorial content",
-        paragraphs: ["Prothymia publishes editorial and informational material. Content may contain interpretation, analysis, or opinion and is not a substitute for professional legal, medical, financial, or other individualized advice."],
+        paragraphs: ["Kvisl publishes editorial and informational material. Content may contain interpretation, analysis, or opinion and is not a substitute for professional legal, medical, financial, or other individualized advice."],
       },
       {
         heading: "Intellectual property",
@@ -221,12 +221,12 @@ export const staticPages: Record<string, StaticPage> = {
     eyebrow: "Policies",
     title: "Policies",
     intro: [
-      "Prothymia's policies are intended to protect editorial independence, reader trust, creator rights, and the privacy of people who use the site.",
+      "Kvisl's policies are intended to protect editorial independence, reader trust, creator rights, and the privacy of people who use the site.",
     ],
     sections: [
       {
         heading: "Editorial independence",
-        paragraphs: ["Editorial decisions are made independently of commercial pressure, traffic incentives, and donor influence. Support for Prothymia does not purchase editorial control."],
+        paragraphs: ["Editorial decisions are made independently of commercial pressure, traffic incentives, and donor influence. Support for Kvisl does not purchase editorial control."],
       },
       {
         heading: "Corrections and updates",
