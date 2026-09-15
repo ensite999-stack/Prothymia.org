@@ -1,14 +1,14 @@
 /* Theme and editorial accent refinements. */
 :root,
 html[data-theme="dark"] {
-  --brand-deep: #5B0B63;
-  --brand: #B06BBB;
+  --brand-deep: #6F2DA8;
+  --brand: #6F2DA8;
 }
 
 html[data-theme="light"] {
   color-scheme: light;
-  --brand-deep: #5B0B63;
-  --brand: #5B0B63;
+  --brand-deep: #6F2DA8;
+  --brand: #6F2DA8;
   --bg: #F2F3F5;
   --paper: #FFFFFF;
   --text: #16191E;
