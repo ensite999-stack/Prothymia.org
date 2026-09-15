@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-identity">
-          <div className="footer-brand" lang="en" translate="no">Prothymia</div>
+          <div className="footer-brand" lang="en" translate="no">Kvisl</div>
           <p className="footer-motto">{site.motto}</p>
         </div>
         <nav className="footer-links" aria-label="Footer">
@@ -19,7 +19,7 @@ export function Footer() {
           <Link href="/copyright">Copyright</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>
-        <p className="footer-copy">© {new Date().getFullYear()} <span lang="en" translate="no">Prothymia</span>. All rights reserved.</p>
+        <p className="footer-copy">© {new Date().getFullYear()} <span lang="en" translate="no">Kvisl</span>. All rights reserved.</p>
       </div>
     </footer>
   );
