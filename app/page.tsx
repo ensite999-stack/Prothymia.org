@@ -22,7 +22,7 @@ export default async function HomePage() {
         <div className="shell">
           <p className="eyebrow">Independent essays</p>
           <h1 className="display-title">Attention is a way of inhabiting the world.</h1>
-          <p className="standfirst">Prothymia publishes essays across history, science, politics, countries, culture, and the life of ideas.</p>
+          <p className="standfirst">Kvisl publishes essays across history, science, politics, countries, culture, and the life of ideas.</p>
           <p className="motto">{site.motto}</p>
         </div>
       </section>
