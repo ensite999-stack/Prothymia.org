@@ -46,7 +46,7 @@ export function NewsletterForm() {
         <label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
       </div>
       <label className="consent-line">
-        <input type="checkbox" required /> I agree to receive Prothymia emails when a new article is published.
+        <input type="checkbox" required /> I agree to receive Kvisl emails when a new article is published.
       </label>
       <button className="button" type="submit" disabled={busy}>{busy ? "Subscribing…" : "Subscribe"}</button>
       {message ? <p className="notice" role="status">{message}</p> : null}
