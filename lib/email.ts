@@ -44,9 +44,9 @@ export async function sendSubscriptionConfirmation(email: string): Promise<void>
   const stop = unsubscribeUrl(email);
   await sendEmail(
     email,
-    "You are subscribed to Prothymia",
-    `<p>You are subscribed to Prothymia.</p><p>You will receive one email whenever a new article is first published.</p><p><a href="${stop}">Unsubscribe</a></p>`,
-    `You are subscribed to Prothymia. You will receive one email whenever a new article is first published.\n\nUnsubscribe: ${stop}`,
+    "You are subscribed to Kvisl",
+    `<p>You are subscribed to Kvisl.</p><p>You will receive one email whenever a new article is first published.</p><p><a href="${stop}">Unsubscribe</a></p>`,
+    `You are subscribed to Kvisl. You will receive one email whenever a new article is first published.\n\nUnsubscribe: ${stop}`,
   );
 }
 
@@ -57,7 +57,7 @@ async function announce(article: Article): Promise<void> {
   for (const reader of readers) {
     if (await deliveryExists(article.id, reader.id)) continue;
     const stop = unsubscribeUrl(reader.email);
-    const subject = `New from Prothymia: ${article.title}`;
+    const subject = `New from Kvisl: ${article.title}`;
     const html = `<p style="font-family:Georgia,serif;color:#66023C;font-size:20px">${site.name}</p><h1>${escapeHtml(article.title)}</h1>${article.dek ? `<p>${escapeHtml(article.dek)}</p>` : ""}<p><a href="${articleUrl}">Read the essay</a></p><p style="font-size:12px"><a href="${stop}">Unsubscribe</a></p>`;
     const text = `${article.title}\n\n${article.dek}\n\n${articleUrl}\n\nUnsubscribe: ${stop}`;
     const providerId = await sendEmail(reader.email, subject, html, text);
