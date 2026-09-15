@@ -4,7 +4,7 @@ export const site = {
   motto: "To attend is to inhabit.",
   email: "Prothymia@Prothymia.org",
   author: "Hollis H. Jiang",
-  color: "#5B0B63",
+  color: "#702963",
   facebook: "https://www.facebook.com/share/1F1tJsuhfF/",
   instagram: "https://www.instagram.com/hollis.jiang?stkn=MW1wNTVscXl5c3ozbw==",
   bitcoin: "bc1qqs0max5tkja7tmm6xtkp4jhqccgvxe6cm7lu0s",

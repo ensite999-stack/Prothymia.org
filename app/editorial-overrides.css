@@ -2,8 +2,8 @@
 :root,
 html[data-theme="dark"] {
   color-scheme: dark;
-  --brand-deep: #8F00FF;
-  --brand: #8F00FF;
+  --brand-deep: #702963;
+  --brand: #702963;
   --bg: #0D1117;
   --paper: #161B22;
   --text: #F5F7FA;
@@ -19,8 +19,8 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
   color-scheme: light;
-  --brand-deep: #8F00FF;
-  --brand: #8F00FF;
+  --brand-deep: #702963;
+  --brand: #702963;
   --bg: #F2F3F5;
   --paper: #FFFFFF;
   --text: #16191E;
