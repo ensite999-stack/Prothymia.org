@@ -11,7 +11,7 @@ export default async function UnsubscribePage({ searchParams }: { searchParams: 
     <section className="section">
       <div className="narrow">
         <p className="eyebrow">Newsletter</p>
-        <h1 className="page-title">Unsubscribe from Prothymia.</h1>
+        <h1 className="page-title">Unsubscribe from Kvisl.</h1>
         <p className="standfirst">Confirm below. Your local subscriber record and linked local delivery records will be deleted.</p>
         {token ? <UnsubscribeForm token={token} /> : <p className="notice">This unsubscribe link is incomplete.</p>}
       </div>
